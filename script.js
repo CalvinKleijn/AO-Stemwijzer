@@ -121,3 +121,34 @@ function backQuestion() {
   body.innerHTML = subject.statement;
 }
 
+function extraWeight() {
+  console.log(+1);
+}
+
+function endSW() {
+  agree.style.display="none";
+  neither.style.display="none";
+  disagree.style.display="none";
+  skip.style.display="none";
+  back.style.display="none";
+  extra.style.display="none";
+  end.style.display="none";
+  body.style.display="none";
+  bodyparties.style.display="inline";
+  secular.style.display="inline";
+  size.style.display="inline";
+  title.innerHTML = "Overzicht van de politieke partijen";
+
+  var partieElement = document.createElement('ul');
+  document.getElementById('sw-parties').appendChild(partieElement);
+  for (var i = 0; i < parties.length; i++) {
+    var partieList = document.createElement('li');
+    var partieLink = document.createElement('input');
+    partieLink.type = "checkbox";
+    partieLink.id = "partieCheck" + [i];
+    partieElement.appendChild(partieList);
+    partieList.appendChild(partieLink);
+    partieList.appendChild(document.createTextNode(parties[i].name)); 
+    document.getElementById("partieCheck" + [i]).disabled = true; 
+  }
+}
