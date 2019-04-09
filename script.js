@@ -72,3 +72,52 @@ function startSW() {
   firstQuestion();
 }
 
+function secularSW() {
+  for (var i = 0; i < parties.length; i++) {
+    var secular = parties[i].secular;
+    if (secular == true) {
+      document.getElementById("partieCheck" + [i]).checked = true;
+    }else{
+      document.getElementById("partieCheck" + [i]).checked = false;
+    }
+  }
+}
+
+function sizeSW() {
+  for (var i = 0; i < parties.length; i++) {
+    var size = parties[i].size;
+    if (size > 0) {
+      document.getElementById("partieCheck" + [i]).checked = true;
+    }else{
+      document.getElementById("partieCheck" + [i]).checked = false;
+    }
+  }
+}
+
+function firstQuestion() {
+  var subject = subjects[question];
+  title.innerHTML = question + 1 + '. ' + subjects[question].title;
+  body.innerHTML = subject.statement;
+}
+
+function nextQuestion() {
+  question++
+
+  if (question == 7) {
+    end.style.display="inline";
+    skip.style.display="none";
+  } else {
+    var subject = subjects[question];
+    title.innerHTML = question + 1 + '. ' + subjects[question].title;
+    body.innerHTML = subject.statement;
+  }
+}
+
+function backQuestion() {
+  question--
+
+  var subject = subjects[question];
+  title.innerHTML = question + 1 + '. ' + subjects[question].title;
+  body.innerHTML = subject.statement;
+}
+
